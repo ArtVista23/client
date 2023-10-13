@@ -10,6 +10,7 @@ import { minorButton } from "../sx/button";
 import FullScreen from "../components/showModel/FullScreen";
 import FavButtons from "../components/showModel/FavButtons";
 import Sidebar from "../components/showModel/SideBar";
+import ReviewPopup from "../components/user/reviewPopup";
 
 export default function ShowModels() {
   const { state } = useLocation();
@@ -18,6 +19,7 @@ export default function ShowModels() {
   const [currentModel, setCurrentModel] = useState([]);
   const [open, setOpen] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
+  const [openReviews, setOpenReviews] = useState(false);
   const [renderModel, setRenderModel] = useState(true);
 
   const handleOpen = () => {
@@ -25,6 +27,13 @@ export default function ShowModels() {
   };
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleOpenReview = () => {
+    setOpenReviews(true);
+  };
+  const handleCloseReview = () => {
+    setOpenReviews(false);
   };
 
   const handleOpenSidebar = () => {
@@ -181,6 +190,13 @@ export default function ShowModels() {
                 >
                   Fullscreen
                 </Button>
+                <Button
+                  variant="contained"
+                  sx={[minorButton]}
+                  onClick={handleOpenReview}
+                >
+                  Reviews
+                </Button>
               </Box>
             </Grid>
           </Grid>
@@ -191,11 +207,18 @@ export default function ShowModels() {
         </Box>
       )}
       {
-        <FullScreen
-          open={open}
-          handleClose={handleClose}
-          currentModel={currentModel}
-        />
+        <>
+          <FullScreen
+            open={open}
+            handleClose={handleClose}
+            currentModel={currentModel}
+          />
+          <ReviewPopup
+            open={openReviews}
+            handleClose={handleCloseReview}
+            model_id={currentModel._id}
+          />
+        </>
       }
       {data && openSidebar && (
         <Sidebar
