@@ -12,8 +12,15 @@ import {
 import { useState } from "react";
 import { sendReply } from "../../../utility/api/admin";
 import { roundBorder } from "../../../sx/container";
-import { inputField, minorButton } from "../../../sx/button";
-import { major, minor, textColor } from "../../../sx/colors";
+import { cardButton, inputField, minorButton } from "../../../sx/button";
+import {
+  accent2,
+  dominant,
+  major,
+  minor,
+  neutral1,
+  textColor,
+} from "../../../sx/colors";
 
 const style = {
   position: "absolute",
@@ -23,13 +30,13 @@ const style = {
   width: { xs: 350, md: 500 },
   height: "max-content",
   overflow: "auto",
-  bgcolor: major,
-  border: `2px solid ${minor}`,
+  bgcolor: neutral1,
+  border: `4px solid ${accent2}`,
   borderRadius: 3,
   color: textColor,
   p: 4,
   scrollbarWidth: "thin",
-  scrollbarColor: `${minor} ${major}`,
+  scrollbarColor: `${dominant} ${major}`,
 };
 
 // eslint-disable-next-line react/prop-types
@@ -104,7 +111,7 @@ export default function FeedbackPopUp({ open, handleClose, currentFeedback }) {
           />
           <Button
             variant="contained"
-            sx={[minorButton, { width: 1, marginTop: 3 }]}
+            sx={[cardButton, { width: 1, marginTop: 3 }]}
             onClick={handleReply}
           >
             Send

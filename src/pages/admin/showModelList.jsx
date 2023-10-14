@@ -14,16 +14,16 @@ import {
   styled,
 } from "@mui/material";
 import { centerAlign, size } from "../../sx/container";
-import { minorButton } from "../../sx/button";
-import { major, textColor } from "../../sx/colors";
+import { minorButton, selectButton } from "../../sx/button";
+import { dominant, major, neutral1, textColor } from "../../sx/colors";
 import { allDetails } from "../../hooks/getModelDetails";
 import IndividualModel from "../../components/adminDashboard/individualModel";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#0a423a",
-    color: major,
-    border: `2px solid ${"#0a423a"}`,
+    backgroundColor: dominant,
+    color: neutral1,
+    border: `2px solid ${dominant}`,
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 24,
@@ -31,8 +31,8 @@ const StyledTableCell = styled(TableCell)(() => ({
 
   [`&.${tableCellClasses.body}`]: {
     fontSize: 18,
-    backgroundColor: major,
-    border: `2px solid ${"#0a423a"}`,
+    backgroundColor: neutral1,
+    border: `2px solid ${dominant}`,
     textAlign: "center",
     color: textColor,
   },
@@ -62,10 +62,14 @@ export default function ShowModelList() {
   };
 
   if (isLoading || isFetching) {
-    return <Box sx={[size, centerAlign]}>Loading...</Box>;
+    return (
+      <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
+        Loading...
+      </Box>
+    );
   } else {
     return (
-      <Box sx={[size, centerAlign]}>
+      <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
         <TableContainer
           component={Paper}
           sx={{
@@ -73,7 +77,7 @@ export default function ShowModelList() {
             margin: "0 auto",
             marginTop: 5,
             overflowY: "auto",
-            height: "60%",
+            maxHeight: "60%",
             scrollbarWidth: "thin",
             backgroundColor: major,
             boxShadow: "none",
@@ -120,7 +124,7 @@ export default function ShowModelList() {
                     >
                       <Button
                         variant="contained"
-                        sx={[minorButton]}
+                        sx={[selectButton]}
                         onClick={() => {
                           handleCurrentRow(row);
                         }}

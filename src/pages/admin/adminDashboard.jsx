@@ -3,7 +3,7 @@ import CountBox from "../../components/adminDashboard/countBox";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import UplaodTable from "../../components/adminDashboard/uploadTable";
-import { major, textColor } from "../../sx/colors";
+import { major, neutral1, textColor } from "../../sx/colors";
 import { centerAlign, size, stack } from "../../sx/container";
 
 export default function AdminDashboard() {
@@ -27,7 +27,7 @@ export default function AdminDashboard() {
         <Box
           sx={[
             {
-              backgroundColor: major,
+              backgroundColor: neutral1,
               paddingY: { xs: 2, md: 5 },
             },
             centerAlign,

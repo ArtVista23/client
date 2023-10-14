@@ -14,14 +14,14 @@ import {
   fetchUploadRequests,
 } from "../../utility/api";
 import PopUpModel from "./popUpModel";
-import { major, minor, textColor } from "../../sx/colors";
+import { dominant, major, minor, neutral1, textColor } from "../../sx/colors";
 import { downloadZip } from "../../utility/api/admin";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: minor,
-    color: major,
-    border: `2px solid ${minor}`,
+    backgroundColor: dominant,
+    color: neutral1,
+    border: `2px solid ${dominant}`,
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 24,
@@ -29,8 +29,8 @@ const StyledTableCell = styled(TableCell)(() => ({
 
   [`&.${tableCellClasses.body}`]: {
     fontSize: 18,
-    backgroundColor: major,
-    border: `2px solid ${minor}`,
+    backgroundColor: neutral1,
+    border: `2px solid ${dominant}`,
     textAlign: "center",
     color: textColor,
   },

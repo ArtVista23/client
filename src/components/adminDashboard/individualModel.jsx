@@ -1,9 +1,10 @@
-import { Box, Button, Typography, Modal, TextField } from "@mui/material";
-import { centerAlign, size, stack } from "../../sx/container";
-import { majorButton, minorButton } from "../../sx/button";
+import { Box, Button, Modal, TextField } from "@mui/material";
+import { centerAlign, stack } from "../../sx/container";
+import { cardButton, inputField } from "../../sx/button";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import axios from "axios";
+import { accent1, accent2, neutral1 } from "../../sx/colors";
 
 const style = {
   position: "absolute",
@@ -12,9 +13,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: "50%",
   height: "90%",
-  bgcolor: "white",
-  border: "4px solid #2fdfc6",
-  boxShadow: 24,
+  bgcolor: neutral1,
+  border: `4px solid ${accent2}`,
   p: 4,
 };
 const textField = { width: "100%" };
@@ -68,7 +68,7 @@ export default function IndividualModel({
             <TextField
               defaultValue={current.title ? current.title : current.fullname}
               label={current.title ? "Title" : "Fullname"}
-              sx={textField}
+              sx={inputField}
               onChange={(e) =>
                 setChanges((prev) => ({
                   ...prev,
@@ -81,7 +81,7 @@ export default function IndividualModel({
                 <TextField
                   defaultValue={current.email}
                   label="Email"
-                  sx={textField}
+                  sx={inputField}
                   onChange={(e) =>
                     setChanges((prev) => ({
                       ...prev,
@@ -92,7 +92,7 @@ export default function IndividualModel({
                 <TextField
                   defaultValue={current.mobile}
                   label="Contact"
-                  sx={textField}
+                  sx={inputField}
                   onChange={(e) =>
                     setChanges((prev) => ({
                       ...prev,
@@ -108,7 +108,7 @@ export default function IndividualModel({
                 rows={5}
                 defaultValue={current.info}
                 label="Description"
-                sx={textField}
+                sx={inputField}
                 onChange={(e) =>
                   setChanges((prev) => ({
                     ...prev,
@@ -117,7 +117,11 @@ export default function IndividualModel({
                 }
               />
             )}
-            <Button sx={[minorButton]} onClick={handleUpdate}>
+            <Button
+              variant="contained"
+              sx={[cardButton]}
+              onClick={handleUpdate}
+            >
               Update
             </Button>
           </Box>

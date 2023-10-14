@@ -10,9 +10,9 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SelectType from "../../components/user/dropdown";
-import { inputField, minorButton } from "../../sx/button";
+import { cardButton, inputField, minorButton } from "../../sx/button";
 import { size, centerAlign, stack, roundBorder } from "../../sx/container";
-import { textColor } from "../../sx/colors";
+import { neutral1, textColor } from "../../sx/colors";
 import { useLocation } from "react-router-dom";
 
 export default function UploadModel() {
@@ -89,7 +89,7 @@ export default function UploadModel() {
     }
   };
   return (
-    <Box sx={[size, centerAlign, stack]}>
+    <Box sx={[size, centerAlign, stack, { backgroundColor: neutral1 }]}>
       <Box
         sx={[
           roundBorder,
@@ -133,7 +133,7 @@ export default function UploadModel() {
         />
         <InputLabel sx={{ color: textColor }}>Model File</InputLabel>
         <TextField type="file" sx={inputField} onChange={handleFile} />
-        <Button variant="contained" sx={[minorButton]} onClick={handleSubmit}>
+        <Button variant="contained" sx={[cardButton]} onClick={handleSubmit}>
           Submit
         </Button>
       </Box>
