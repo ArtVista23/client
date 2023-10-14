@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { centerAlign, size, stack } from "../../sx/container";
 import GenerateModel from "../model";
 import GenerateRotateModel from "./modelRotate";
+import { accent1, dominant, neutral1 } from "../../sx/colors";
 
 export default function FirstSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -19,7 +20,9 @@ export default function FirstSection() {
   });
   const ref = useRef(null);
   return (
-    <Box sx={[size, centerAlign]}>
+    <Box
+      sx={[size, centerAlign, { backgroundColor: dominant, color: neutral1 }]}
+    >
       <Grid container sx={{ width: "80%" }}>
         <Grid ref={ref} item xs={12} md={6} sx={[centerAlign, stack]}>
           <Box sx={{ marginY: 3 }}>
@@ -34,10 +37,7 @@ export default function FirstSection() {
                   lineHeight: 0.95,
                 }}
               >
-                Where History and Creativity Converges in{" "}
-                <Box component={"span"} sx={{ color: "#158474" }}>
-                  3D
-                </Box>
+                Where History and Creativity Converges in 3D
               </Typography>
             </Fade>
           </Box>
@@ -59,16 +59,12 @@ export default function FirstSection() {
                 width: { md: 500 },
                 height: { md: 600 },
                 overflow: "hidden",
-                border: "4px solid #2fdfc6",
+                border: "4px solid",
+                borderColor: accent1,
                 borderRadius: 3,
               }}
             >
               <GenerateRotateModel currentModel={"horse.glb"} rotate={true} />
-              {/* <Box
-                component={"img"}
-                sx={{ width: "100%", marginTop: 2, objectFit: "contain" }}
-                src="/images/firstSection.jpg"
-              ></Box> */}
             </Box>
           </Fade>
         </Grid>

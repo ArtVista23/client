@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Grid, Typography, Box, Fade } from "@mui/material";
 import { centerAlign, stack } from "../../sx/container";
+import { accent2, neutral1 } from "../../sx/colors";
 
 export default function FirstSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -27,7 +28,7 @@ export default function FirstSection() {
             sx={{
               fontSize: { xs: 48, md: 48 },
               fontWeight: "bold",
-              color: "#158474",
+              color: accent2,
             }}
           >
             About Us
@@ -44,6 +45,7 @@ export default function FirstSection() {
               width: { xs: "90%", md: "60%" },
               textAlign: "justify",
               fontSize: { xs: 24, md: 36 },
+              color: neutral1,
             }}
           >
             Welcome to ArtVista, your gateway to a captive world of art and

@@ -3,29 +3,42 @@ import FirstSection from "../../components/about/firstSection";
 import SecondSection from "../../components/about/secondSection";
 import ThirdSection from "../../components/about/thirdSection";
 import FourthSection from "../../components/about/fourthSection";
-import { major, textColor } from "../../sx/colors";
+import { dominant, major, neutral1, textColor } from "../../sx/colors";
 
 export default function About() {
   return (
     <Box
       sx={{
         height: "auto",
-        backgroundColor: major,
         color: textColor,
-        paddingY: 15,
-        gap: 5,
       }}
     >
-      <Grid container sx={{ height: 1, paddingY: 5 }}>
+      <Grid
+        container
+        sx={{ height: 1, paddingY: 5, backgroundColor: dominant }}
+      >
         <FirstSection />
       </Grid>
-      <Grid container sx={{ height: 1, paddingY: 5, marginTop: 10 }}>
+      <Grid
+        container
+        sx={{
+          height: 1,
+          paddingY: 5,
+          backgroundColor: neutral1,
+        }}
+      >
         <SecondSection />
       </Grid>
-      <Grid container sx={{ height: 1, paddingY: 5, marginTop: 10 }}>
+      <Grid
+        container
+        sx={{ height: 1, paddingY: 5, backgroundColor: dominant }}
+      >
         <ThirdSection />
       </Grid>
-      <Grid container sx={{ height: 1, paddingY: 5, marginTop: 10 }}>
+      <Grid
+        container
+        sx={{ height: 1, paddingY: 5, backgroundColor: neutral1 }}
+      >
         <FourthSection />
       </Grid>
     </Box>

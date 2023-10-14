@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DropDown from "./dropdown";
 import SearchBox from "./user/searchBox";
-import { textColor } from "../sx/colors";
+import { accent2, dominant, neutral1 } from "../sx/colors";
 import { centerAlign } from "../sx/container";
 
 function NavBar() {
@@ -123,7 +123,8 @@ function NavBar() {
         component="nav"
         sx={{
           position: "fixed",
-          backgroundColor: "#a7f1e6",
+          backgroundColor: dominant,
+          boxShadow: "none",
         }}
       >
         <Toolbar sx={[centerAlign, { gap: { md: 5 } }]}>
@@ -142,7 +143,7 @@ function NavBar() {
                 showOn == item.show && (
                   <Button
                     key={index}
-                    sx={{ color: textColor, fontWeight: "bold" }}
+                    sx={{ color: neutral1, fontWeight: "bold" }}
                     onClick={() => {
                       navigate(item.link);
                     }}
@@ -157,9 +158,9 @@ function NavBar() {
             variant="h4"
             component="div"
             sx={{
-              color: "#0a423a",
+              color: neutral1,
               fontWeight: "bold",
-              textShadow: "4px 4px 5px #116e60",
+              textShadow: `4px 4px 5px ${accent2}`,
             }}
           >
             ArtVista
@@ -170,7 +171,7 @@ function NavBar() {
                 showOn == item.show && (
                   <Button
                     key={index}
-                    sx={{ color: textColor, fontWeight: "bold" }}
+                    sx={{ color: neutral1, fontWeight: "bold" }}
                     onClick={() => {
                       if (item.name.toLowerCase() == "logout") {
                         handleLogout();

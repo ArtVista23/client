@@ -9,8 +9,9 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getUserDetails } from "../utility/api/userDetails";
-import { inputField, minorButton } from "../sx/button";
+import { cardButton, inputField } from "../sx/button";
 import { centerAlign, roundBorder, size, stack } from "../sx/container";
+import { dominant, neutral1 } from "../sx/colors";
 
 export default function Contact() {
   const [inputs, setInputs] = useState([]);
@@ -68,7 +69,13 @@ export default function Contact() {
     }
   };
   return (
-    <Box sx={[size, centerAlign, { padding: { xs: 2 } }]}>
+    <Box
+      sx={[
+        size,
+        centerAlign,
+        { padding: { xs: 2 }, backgroundColor: dominant },
+      ]}
+    >
       <Box
         sx={[
           roundBorder,
@@ -79,8 +86,7 @@ export default function Contact() {
             width: { md: 600 },
             gap: 3,
             padding: { xs: 5, md: 0 },
-            backgroundColor: "#e9fcf9",
-            boxShadow: "8px 8px 8px #0a423a",
+            backgroundColor: neutral1,
           },
         ]}
       >
@@ -116,7 +122,7 @@ export default function Contact() {
           onChange={handleChange}
           sx={inputField}
         />
-        <Button variant="contained" sx={[minorButton]} onClick={handleSubmit}>
+        <Button variant="contained" sx={[cardButton]} onClick={handleSubmit}>
           Submit
         </Button>
       </Box>

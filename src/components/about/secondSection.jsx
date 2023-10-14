@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Grid, Typography, Box, Fade } from "@mui/material";
 import { centerAlign, stack } from "../../sx/container";
+import { accent2 } from "../../sx/colors";
 
 export default function SecondSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -42,7 +43,7 @@ export default function SecondSection() {
             sx={{
               fontSize: { xs: 48, md: 48 },
               fontWeight: "bold",
-              color: "#158474",
+              color: accent2,
             }}
           >
             Our Mission

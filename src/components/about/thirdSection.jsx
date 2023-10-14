@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Grid, Typography, Box, Fade } from "@mui/material";
 import { centerAlign, stack } from "../../sx/container";
+import { accent2, neutral1 } from "../../sx/colors";
 
 export default function ThirdSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -27,7 +28,7 @@ export default function ThirdSection() {
             sx={{
               fontSize: { xs: 48, md: 48 },
               fontWeight: "bold",
-              color: "#158474",
+              color: accent2,
             }}
           >
             Our Vision
@@ -44,6 +45,7 @@ export default function ThirdSection() {
               width: { xs: "90%", md: "60%" },
               textAlign: "justify",
               fontSize: { xs: 24, md: 36 },
+              color: neutral1,
             }}
           >
             We envision a world where art {"isn't"} confined to museums and

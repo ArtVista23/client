@@ -1,7 +1,7 @@
 import { Box, Grid, Fade, Typography } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import { centerAlign, size } from "../../sx/container";
-import { minor } from "../../sx/colors";
+import { accent1, accent2, dominant, minor, neutral1 } from "../../sx/colors";
 
 export default function ThirdSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -17,7 +17,9 @@ export default function ThirdSection() {
   });
   const ref = useRef(null);
   return (
-    <Box sx={[centerAlign, size]}>
+    <Box
+      sx={[centerAlign, size, { backgroundColor: dominant, color: neutral1 }]}
+    >
       <Grid
         ref={ref}
         container
@@ -53,7 +55,8 @@ export default function ThirdSection() {
                 sx={{
                   width: { xs: 350, md: 400 },
                   height: { xs: 350, md: 400 },
-                  border: 1,
+                  border: "4px solid",
+                  borderColor: accent1,
                   borderRadius: 15,
                   overflow: "hidden",
                   position: "relative",
@@ -70,7 +73,7 @@ export default function ThirdSection() {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    color: "#158474",
+                    color: accent2,
                     fontSize: 48,
                     fontWeight: "bold",
                   }}
@@ -91,7 +94,8 @@ export default function ThirdSection() {
                 sx={{
                   width: { xs: 350, md: 400 },
                   height: { xs: 350, md: 400 },
-                  border: 1,
+                  border: "4px solid",
+                  borderColor: accent1,
                   borderRadius: 15,
                   overflow: "hidden",
                   position: "relative",
@@ -108,7 +112,7 @@ export default function ThirdSection() {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    color: minor,
+                    color: accent2,
                     fontSize: 48,
                     fontWeight: "bold",
                   }}
@@ -129,7 +133,8 @@ export default function ThirdSection() {
                 sx={{
                   width: { xs: 350, md: 400 },
                   height: { xs: 350, md: 400 },
-                  border: 1,
+                  border: "4px solid",
+                  borderColor: accent1,
                   borderRadius: 15,
                   overflow: "hidden",
                   position: "relative",
@@ -146,7 +151,7 @@ export default function ThirdSection() {
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
-                    color: minor,
+                    color: accent2,
                     fontSize: 48,
                     fontWeight: "bold",
                   }}

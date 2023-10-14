@@ -9,9 +9,9 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { inputField, minorButton } from "../../sx/button";
+import { cardButton, inputField, minorButton } from "../../sx/button";
 import { centerAlign, roundBorder, size, stack } from "../../sx/container";
-import { textColor } from "../../sx/colors";
+import { dominant, neutral1, textColor } from "../../sx/colors";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -62,7 +62,13 @@ export default function Login() {
     }
   };
   return (
-    <Box sx={[size, centerAlign, { padding: { xs: 2 } }]}>
+    <Box
+      sx={[
+        size,
+        centerAlign,
+        { padding: { xs: 2 }, backgroundColor: dominant },
+      ]}
+    >
       <Box
         sx={[
           roundBorder,
@@ -73,12 +79,12 @@ export default function Login() {
             width: { md: 700 },
             gap: 3,
             padding: { xs: 5, md: 0 },
-            boxShadow: "8px 8px 8px #0a423a",
+            backgroundColor: neutral1,
           },
         ]}
       >
         <Typography sx={{ fontSize: { xs: 28, md: 48 } }}>
-          Log In to Your Account
+          Log In to Your Account!!
         </Typography>
         <Typography sx={{ textAlign: "center", width: "80%" }}>
           Welcome back to ArtVista! Please log in below to continue your journey
@@ -105,22 +111,13 @@ export default function Login() {
           onChange={handleChange}
         />
 
-        <Button
-          variant="contained"
-          sx={[
-            minorButton,
-            {
-              "&:disabled": { backgroundColor: "grey", color: textColor },
-            },
-          ]}
-          onClick={handleSubmit}
-        >
+        <Button variant="contained" sx={[cardButton]} onClick={handleSubmit}>
           Log In
         </Button>
         <Typography variant="h5">OR</Typography>
         <Button
           variant="contained"
-          sx={[minorButton]}
+          sx={[cardButton]}
           onClick={() => navigate("/register")}
         >
           Sign Up

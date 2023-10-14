@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { centerAlign, size, stack } from "../../sx/container";
 import { minorButton } from "../../sx/button";
+import { accent2, neutral1 } from "../../sx/colors";
 
 export default function SecondSection() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function SecondSection() {
   }, []);
   const ref = useRef(null);
   return (
-    <Box sx={[size, centerAlign]}>
+    <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
       <Grid container sx={{ width: "80%" }}>
         <Grid item xs={12} md={6} sx={[centerAlign, stack]}>
           <Box ref={ref}>
@@ -49,7 +50,13 @@ export default function SecondSection() {
               >
                 <Box
                   component={"img"}
-                  sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    border: "4px solid",
+                    borderColor: accent2,
+                  }}
                   src={`/images/home/${currentImage}.jpg`}
                 ></Box>
               </Box>
@@ -70,10 +77,7 @@ export default function SecondSection() {
                     lineHeight: 0.95,
                   }}
                 >
-                  Welcome to
-                  <Box component={"span"} sx={{ color: "#158474" }}>
-                    ArtVista
-                  </Box>
+                  Welcome to ArtVista
                 </Typography>
                 <Typography
                   variant="body1"

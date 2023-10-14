@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { centerAlign } from "../sx/container";
-import { major, textColor } from "../sx/colors";
+import { dominant, neutral1 } from "../sx/colors";
 const navItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
@@ -16,14 +16,14 @@ export default function Footer() {
       sx={[
         centerAlign,
         {
-          backgroundColor: major,
-          color: textColor,
+          backgroundColor: dominant,
+          color: neutral1,
           paddingY: 5,
           borderTop: 1,
         },
       ]}
     >
-      <Typography sx={{ fontSize: 36, fontWeight: "bold", color: "#0a423a" }}>
+      <Typography sx={{ fontSize: 36, fontWeight: "bold" }}>
         ArtVista
       </Typography>
       {!sessionStorage.getItem("userId") && (
@@ -31,7 +31,7 @@ export default function Footer() {
           {navItems.map((item, index) => (
             <Button
               key={index}
-              sx={{ color: textColor, fontWeight: "bold" }}
+              sx={{ fontWeight: "bold", color: neutral1 }}
               onClick={() => {
                 navigate(item.link);
               }}

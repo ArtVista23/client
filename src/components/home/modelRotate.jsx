@@ -10,7 +10,7 @@ import {
   useProgress,
 } from "@react-three/drei";
 import { Box } from "@mui/material";
-import { major } from "../../sx/colors";
+import { dominant, major } from "../../sx/colors";
 import { Suspense, useRef } from "react";
 
 function Loader() {
@@ -61,7 +61,7 @@ function Model({ filename, rotate }) {
 export default function GenerateRotateModel({ currentModel, rotate }) {
   return (
     <Box sx={{ width: 1, height: 1 }}>
-      <Canvas style={{ padding: 5, backgroundColor: major }}>
+      <Canvas style={{ padding: 5, backgroundColor: dominant }}>
         <Suspense fallback={<Loader />}>
           <ambientLight />
           <Model filename={currentModel} rotate={rotate} />

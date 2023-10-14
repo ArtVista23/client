@@ -2,6 +2,7 @@ import { Box, Grid, Fade, Typography } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import { fetchLatestModels } from "../../utility/api";
 import { centerAlign, size } from "../../sx/container";
+import { accent2, neutral1 } from "../../sx/colors";
 
 export default function FourthSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -27,7 +28,7 @@ export default function FourthSection() {
 
   const ref = useRef(null);
   return (
-    <Box sx={[size, centerAlign]}>
+    <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
       <Grid
         ref={ref}
         container
@@ -67,6 +68,10 @@ export default function FourthSection() {
                     sx={{
                       width: { md: 400 },
                       height: { md: 400 },
+                      border: "4px solid",
+                      borderColor: accent2,
+                      borderRadius: 3,
+                      overflow: "hidden",
                     }}
                   >
                     <Box

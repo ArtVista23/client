@@ -5,9 +5,9 @@ import { validateForm } from "../../utility/formValidation";
 import { useNavigate } from "react-router-dom";
 import OTPMail from "../../components/register/otpMail";
 import { setOTP } from "../../utility/api/register";
-import { inputField, minorButton } from "../../sx/button";
+import { cardButton, inputField, minorButton } from "../../sx/button";
 import { centerAlign, roundBorder, size, stack } from "../../sx/container";
-import { textColor } from "../../sx/colors";
+import { dominant, neutral1, textColor } from "../../sx/colors";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -62,7 +62,13 @@ export default function Register() {
     })();
   };
   return (
-    <Box sx={[size, centerAlign, { padding: { xs: 2 } }]}>
+    <Box
+      sx={[
+        size,
+        centerAlign,
+        { padding: { xs: 2 }, backgroundColor: dominant },
+      ]}
+    >
       <Box
         sx={[
           {
@@ -70,7 +76,7 @@ export default function Register() {
             width: { xs: 600, md: 700 },
             gap: 3,
             padding: { xs: 5, md: 0 },
-            boxShadow: "8px 8px 8px #0a423a",
+            backgroundColor: neutral1,
           },
           roundBorder,
           centerAlign,
@@ -78,7 +84,7 @@ export default function Register() {
         ]}
       >
         <Typography sx={{ fontSize: { xs: 28, md: 48 } }}>
-          Create Your Account
+          Create Your Account!!!!!
         </Typography>
         <Typography sx={{ textAlign: "center", width: "80%" }}>
           Welcome to ArtVista! By creating an account,
@@ -147,12 +153,7 @@ export default function Register() {
         />
         <Button
           variant="contained"
-          sx={[
-            {
-              "&:disabled": { backgroundColor: "grey", color: textColor },
-            },
-            minorButton,
-          ]}
+          sx={[cardButton]}
           disabled={disabled}
           onClick={handleSubmit}
         >
@@ -161,7 +162,7 @@ export default function Register() {
         <Typography variant="h5">OR</Typography>
         <Button
           variant="contained"
-          sx={[minorButton]}
+          sx={[cardButton]}
           onClick={() => navigate("/login")}
         >
           Sign In

@@ -1,10 +1,17 @@
-import { major, minor, textColor } from "./colors";
+import { dominant, major, minor, neutral1, textColor } from "./colors";
 
 const minorButton = {
   backgroundColor: minor,
   color: "black",
   fontWeight: "bold",
   "&:hover": { backgroundColor: minor },
+};
+
+const cardButton = {
+  backgroundColor: dominant,
+  fontWeight: "bold",
+  "&:hover": { backgroundColor: dominant },
+  "&:diabled": { backgroundColor: neutral1 },
 };
 
 const majorButton = {
@@ -14,9 +21,9 @@ const majorButton = {
   "&:hover": { backgroundColor: major },
 };
 const inputField = {
-  border: 1,
+  border: 2,
   color: textColor,
-  borderColor: minor,
+  borderColor: dominant,
   borderRadius: 3,
   width: { xs: "100%", md: "80%" },
   "& fieldset": {
@@ -35,4 +42,4 @@ const inputField = {
     "-webkit-text-fill-color": textColor,
   },
 };
-export { minorButton, majorButton, inputField };
+export { minorButton, majorButton, inputField, cardButton };
