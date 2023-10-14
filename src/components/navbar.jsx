@@ -160,7 +160,7 @@ function NavBar() {
             sx={{
               color: neutral1,
               fontWeight: "bold",
-              textShadow: `4px 4px 5px ${accent2}`,
+              textShadow: `4px 4px 1px ${accent2}`,
             }}
           >
             ArtVista
