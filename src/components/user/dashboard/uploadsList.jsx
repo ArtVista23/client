@@ -9,8 +9,8 @@ import Paper from "@mui/material/Paper";
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { major, textColor } from "../../../sx/colors";
-import { minorButton } from "../../../sx/button";
+import { dominant, major, neutral1, textColor } from "../../../sx/colors";
+import { minorButton, selectButton } from "../../../sx/button";
 import axios from "axios";
 import { getUserDetails } from "../../../utility/api/userDetails";
 
@@ -92,13 +92,7 @@ export default function UploadsList({ list, lastUploaded }) {
       <Box sx={{ overflowY: "auto", scrollbarWidth: "thin", height: 1 }}>
         <Button
           variant="contained"
-          sx={[
-            minorButton,
-            {
-              "&:disabled": { backgroundColor: "grey" },
-              marginY: 3,
-            },
-          ]}
+          sx={[selectButton, { marginBottom: 2 }]}
           onClick={() => {
             if (list.length > 0) {
               if (lastUploaded == "Pending")
@@ -119,47 +113,50 @@ export default function UploadsList({ list, lastUploaded }) {
         {list.length > 0 ? (
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
-              <TableHead sx={{ backgroundColor: "#0a423a" }}>
+              <TableHead sx={{ backgroundColor: dominant }}>
                 <TableRow>
                   <TableCell
-                    sx={{ fontWeight: "bold", color: "white" }}
+                    sx={{ fontWeight: "bold", color: neutral1 }}
                     align="center"
                   >
                     Upload Item
                   </TableCell>
                   <TableCell
-                    sx={{ fontWeight: "bold", color: "white" }}
+                    sx={{ fontWeight: "bold", color: neutral1 }}
                     align="center"
                   >
                     Date of Upload
                   </TableCell>
                   <TableCell
-                    sx={{ fontWeight: "bold", color: "white" }}
+                    sx={{ fontWeight: "bold", color: neutral1 }}
                     align="center"
                   >
                     Status
                   </TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody sx={{ backgroundColor: major }}>
+              <TableBody sx={{ backgroundColor: neutral1 }}>
                 {list.map((row, index) => (
                   <TableRow
                     key={index}
                     sx={{
                       borderBottom: 2,
-                      borderColor: "#0a423a ",
+                      borderColor: dominant,
                       "&:last-child td, &:last-child th": { border: 0 },
                     }}
                   >
                     <TableCell
-                      sx={{ color: textColor }}
+                      sx={{ color: dominant, fontWeight: "bold" }}
                       align="center"
                       component="th"
                       scope="row"
                     >
                       {row.title}
                     </TableCell>
-                    <TableCell sx={{ color: textColor }} align="center">
+                    <TableCell
+                      sx={{ color: dominant, fontWeight: "bold" }}
+                      align="center"
+                    >
                       {row.createdAt.substring(0, row.createdAt.indexOf("T"))}
                     </TableCell>
                     <TableCell

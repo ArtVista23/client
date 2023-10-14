@@ -2,9 +2,9 @@ import { getReviews } from "../../hooks/getReviews";
 import { Box, Button, CircularProgress, TextField } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import { major, minor, textColor } from "../../sx/colors";
+import { accent2, dominant, major, neutral1, textColor } from "../../sx/colors";
 import { centerAlign, size } from "../../sx/container";
-import { minorButton } from "../../sx/button";
+import { cardButton } from "../../sx/button";
 import { useState } from "react";
 import axios from "axios";
 
@@ -16,13 +16,13 @@ const style = {
   width: { xs: 350, md: 500 },
   height: { xs: 350, md: 500 },
   overflow: "auto",
-  bgcolor: major,
-  border: `2px solid ${minor}`,
+  bgcolor: neutral1,
+  border: `2px solid ${accent2}`,
   borderRadius: 3,
   color: textColor,
   p: 4,
   scrollbarWidth: "thin",
-  scrollbarColor: `${minor} ${major}`,
+  scrollbarColor: `${dominant} ${major}`,
 };
 
 export default function ReviewPopup({ open, handleClose, model_id }) {
@@ -58,6 +58,7 @@ export default function ReviewPopup({ open, handleClose, model_id }) {
                   overflowY: "auto",
                   marginBottom: 1,
                   padding: 2,
+                  gap: 2,
                 },
               ]}
             >
@@ -85,7 +86,7 @@ export default function ReviewPopup({ open, handleClose, model_id }) {
               />
               <Button
                 variant="contained"
-                sx={[minorButton, { marginLeft: 2 }]}
+                sx={[cardButton, { marginLeft: 2 }]}
                 onClick={handleAddReview}
               >
                 Add

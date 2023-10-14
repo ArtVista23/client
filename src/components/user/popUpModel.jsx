@@ -8,7 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import InfoIcon from "@mui/icons-material/Info";
 import { useState } from "react";
 import PopUp from "./popUp";
-import { major, minor, textColor } from "../../sx/colors";
+import { accent2, major, minor, neutral1, textColor } from "../../sx/colors";
 
 const style = {
   position: "absolute",
@@ -17,8 +17,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: { xs: 400, md: 600 },
   height: 600,
-  backgroundColor: major,
-  border: `2px solid ${minor}`,
+  backgroundColor: neutral1,
+  border: `4px solid ${accent2}`,
   borderRadius: 3,
   color: textColor,
   display: "flex",
@@ -50,7 +50,7 @@ export default function PopUpModel({
           <Typography
             variant="h6"
             component="h2"
-            sx={{ borderBottom: 1, borderBottomColor: minor }}
+            sx={{ borderBottom: 1, borderBottomColor: accent2 }}
           >
             {currentModel.title}
           </Typography>
@@ -62,16 +62,16 @@ export default function PopUpModel({
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <InfoIcon
               onClick={handleOpenInfo}
-              sx={{ color: minor, fontSize: 36 }}
+              sx={{ color: accent2, fontSize: 36 }}
             />
             {currentModel.favourite ? (
               <FavoriteIcon
-                sx={{ color: minor, fontSize: 36 }}
+                sx={{ color: accent2, fontSize: 36 }}
                 onClick={handleFavourite}
               ></FavoriteIcon>
             ) : (
               <FavoriteBorderIcon
-                sx={{ color: minor, fontSize: 36 }}
+                sx={{ color: accent2, fontSize: 36 }}
                 onClick={handleFavourite}
               />
             )}

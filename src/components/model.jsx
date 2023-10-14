@@ -58,7 +58,7 @@ function Model({ filename }) {
 export default function GenerateModel({ currentModel }) {
   return (
     <Box sx={{ width: 1, height: 1 }}>
-      <Canvas style={{ padding: 5, backgroundColor: major }}>
+      <Canvas style={{ padding: 5, backgroundColor: "transparent" }}>
         <Suspense fallback={<Loader />}>
           <ambientLight />
           <Model filename={currentModel} />

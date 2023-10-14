@@ -4,8 +4,8 @@ import { useState } from "react";
 import PopUpModel from "../popUpModel";
 import axios from "axios";
 import { centerAlign, stack } from "../../../sx/container";
-import { majorButton } from "../../../sx/button";
-import { major, minor } from "../../../sx/colors";
+import { cardButton } from "../../../sx/button";
+import { accent2, major, minor, neutral1 } from "../../../sx/colors";
 
 export default function Favourites({ favourites, setFavourites }) {
   const [currentModel, setCurrentModel] = useState({
@@ -75,7 +75,7 @@ export default function Favourites({ favourites, setFavourites }) {
           scrollbarWidth: "thin",
           scrollbarColor: `${minor} ${major}`,
           borderBottom: 2,
-          borderBottomColor: minor,
+          borderBottomColor: accent2,
         }}
       >
         {favourites.length == 0 ? (
@@ -93,7 +93,9 @@ export default function Favourites({ favourites, setFavourites }) {
                       stack,
                       {
                         borderRadius: 2,
-                        backgroundColor: minor,
+                        border: 4,
+                        borderColor: accent2,
+                        backgroundColor: neutral1,
                         padding: 1,
                       },
                     ]}
@@ -123,7 +125,7 @@ export default function Favourites({ favourites, setFavourites }) {
                     </Typography>
                     <Button
                       variant="contained"
-                      sx={[majorButton, { width: 1, color: "black" }]}
+                      sx={[cardButton]}
                       onClick={() => {
                         handleCurrentModel(model, index);
                         handleOpen();

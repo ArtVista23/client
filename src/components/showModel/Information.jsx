@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Box, Typography } from "@mui/material";
 import { centerAlign, stack } from "../../sx/container";
+import { accent1 } from "../../sx/colors";
 
 export default function Information({ currentModel }) {
   return (
@@ -11,7 +12,7 @@ export default function Information({ currentModel }) {
         {
           height: 400,
           width: "90%",
-          border: "2px solid #2fdfc6",
+          border: `4px solid ${accent1}`,
           borderRadius: 3,
         },
       ]}

@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import GenerateModel from "../model";
 import { Button } from "@mui/material";
-import { minorButton } from "../../sx/button";
+import { cardButton } from "../../sx/button";
 import { centerAlign } from "../../sx/container";
-import { major } from "../../sx/colors";
+import { accent2, neutral1 } from "../../sx/colors";
 
 const style = {
   position: "absolute",
@@ -14,7 +14,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: "95%",
   height: "95%",
-  bgcolor: major,
+  bgcolor: neutral1,
+  border: `4px solid ${accent2}`,
   p: 4,
 };
 
@@ -26,7 +27,7 @@ export default function FullScreen({ open, handleClose, currentModel }) {
           <Box flexGrow={1} sx={[centerAlign]}>
             <Button
               variant="contained"
-              sx={[minorButton, { marginBottom: 2 }]}
+              sx={[cardButton, { marginBottom: 2 }]}
               onClick={handleClose}
             >
               Close FullScreen

@@ -4,7 +4,8 @@ import Favourites from "../../components/user/dashboard/favourites";
 import { useEffect, useState } from "react";
 import { fetchFavourites, fetchUserUploads } from "../../utility/api";
 import { centerAlign, size, stack } from "../../sx/container";
-import { minorButton } from "../../sx/button";
+import { minorButton, selectButton } from "../../sx/button";
+import { neutral1 } from "../../sx/colors";
 export default function Dashboard() {
   const [show, setShow] = useState(true);
   const [favourites, setFavourites] = useState([]);
@@ -27,7 +28,7 @@ export default function Dashboard() {
     })();
   }, []);
   return (
-    <Box sx={[size, centerAlign, stack]}>
+    <Box sx={[size, centerAlign, stack, { backgroundColor: neutral1 }]}>
       <Box
         sx={{
           width: { xs: "100%", md: "70%" },
@@ -45,14 +46,14 @@ export default function Dashboard() {
         >
           <Button
             variant="contained"
-            sx={[minorButton]}
+            sx={[selectButton]}
             onClick={() => setShow(true)}
           >
             Favourites
           </Button>
           <Button
             variant="contained"
-            sx={[minorButton]}
+            sx={[selectButton]}
             onClick={() => setShow(false)}
           >
             Uploads

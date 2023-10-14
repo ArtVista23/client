@@ -6,11 +6,12 @@ import Model from "../components/showModel/Model";
 import { useLocation } from "react-router-dom";
 import { TypesOfModel } from "../hooks/typeOfModels";
 import { UserFavourites } from "../hooks/userFavourites";
-import { minorButton } from "../sx/button";
+import { minorButton, selectButton } from "../sx/button";
 import FullScreen from "../components/showModel/FullScreen";
 import FavButtons from "../components/showModel/FavButtons";
 import Sidebar from "../components/showModel/SideBar";
 import ReviewPopup from "../components/user/reviewPopup";
+import { accent1, dominant, neutral1 } from "../sx/colors";
 
 export default function ShowModels() {
   const { state } = useLocation();
@@ -91,7 +92,7 @@ export default function ShowModels() {
   return (
     <>
       {data ? (
-        <Box sx={[size]}>
+        <Box sx={[size, { backgroundColor: dominant, color: neutral1 }]}>
           <Grid container sx={{ height: 1 }}>
             <Grid
               item
@@ -123,7 +124,7 @@ export default function ShowModels() {
                       height: 300,
                       overflow: "hidden",
                       border: selectedIndex == index ? 4 : 0,
-                      borderColor: "#2fdfc6",
+                      borderColor: accent1,
                       marginTop: 2,
                     }}
                   >
@@ -148,8 +149,8 @@ export default function ShowModels() {
               xs={12}
               md={7}
               sx={{
-                borderLeft: "2px solid #2fdfc6",
-                borderRight: "2px solid #2fdfc6",
+                borderLeft: `2px solid ${neutral1}`,
+                borderRight: `2px solid ${neutral1}`,
                 padding: 2,
                 height: 1,
               }}
@@ -185,14 +186,14 @@ export default function ShowModels() {
                 />
                 <Button
                   variant="contained"
-                  sx={[minorButton]}
+                  sx={[selectButton]}
                   onClick={handleOpen}
                 >
                   Fullscreen
                 </Button>
                 <Button
                   variant="contained"
-                  sx={[minorButton]}
+                  sx={[selectButton]}
                   onClick={handleOpenReview}
                 >
                   Reviews

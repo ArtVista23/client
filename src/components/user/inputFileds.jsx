@@ -3,8 +3,8 @@ import { Box, Typography, TextField, Divider, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { validateForm } from "../../utility/formValidation";
-import { inputField, minorButton } from "../../sx/button";
-import { minor, textColor } from "../../sx/colors";
+import { cardButton, inputField, minorButton } from "../../sx/button";
+import { dominant, minor, textColor } from "../../sx/colors";
 
 export default function InputFileds() {
   const userId = sessionStorage.getItem("userId");
@@ -85,8 +85,7 @@ export default function InputFileds() {
           sx={{
             fontSize: { xs: 20, md: 24 },
             fontWeight: "bold",
-            color: "#158474",
-            textShadow: "1px 1px 2px black",
+            color: dominant,
           }}
         >
           Name:
@@ -108,8 +107,7 @@ export default function InputFileds() {
           sx={{
             fontSize: { xs: 20, md: 24 },
             fontWeight: "bold",
-            color: "#158474",
-            textShadow: "1px 1px 2px black",
+            color: dominant,
           }}
         >
           Email:
@@ -131,8 +129,7 @@ export default function InputFileds() {
           sx={{
             fontSize: { xs: 20, md: 24 },
             fontWeight: "bold",
-            color: "#158474",
-            textShadow: "1px 1px 2px black",
+            color: dominant,
           }}
         >
           Mobile:
@@ -152,7 +149,7 @@ export default function InputFileds() {
       {inputDisable ? (
         <Button
           variant="contained"
-          sx={[minorButton]}
+          sx={[cardButton]}
           onClick={() => setInputDisable(false)}
         >
           Update Details
@@ -161,17 +158,14 @@ export default function InputFileds() {
         <>
           <Button
             variant="contained"
-            sx={[minorButton]}
+            sx={[cardButton]}
             onClick={() => setInputDisable(true)}
           >
             Cancel
           </Button>
           <Button
             variant="contained"
-            sx={[
-              minorButton,
-              { "&:disabled": { backgroundColor: "grey", color: textColor } },
-            ]}
+            sx={[cardButton]}
             disabled={buttonDisable}
             onClick={() => {
               handleSubmit();

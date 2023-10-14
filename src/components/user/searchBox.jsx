@@ -2,7 +2,7 @@ import { Box, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { textColor } from "../../sx/colors";
+import { neutral1, textColor } from "../../sx/colors";
 
 export default function SearchBox() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function SearchBox() {
       sx={{
         border: showInput ? 1 : "none",
         borderRadius: 3,
-        borderColor: "#0a423a",
+        borderColor: neutral1,
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
@@ -36,14 +36,14 @@ export default function SearchBox() {
               border: "none",
             },
             "& .MuiFormLabel-root.Mui-focused": {
-              color: textColor,
+              color: neutral1,
             },
-            input: { color: textColor },
+            input: { color: neutral1 },
           }}
           onChange={(e) => setSearchContent(e.target.value)}
         ></TextField>
       )}
-      <SearchIcon onClick={handleSearch} sx={{ color: "#0a423a" }} />
+      <SearchIcon onClick={handleSearch} sx={{ color: neutral1 }} />
     </Box>
   );
 }

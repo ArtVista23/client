@@ -1,4 +1,4 @@
-import { dominant, major, minor, neutral1, textColor } from "./colors";
+import { accent2, dominant, major, minor, neutral1, textColor } from "./colors";
 
 const minorButton = {
   backgroundColor: minor,
@@ -12,6 +12,12 @@ const cardButton = {
   fontWeight: "bold",
   "&:hover": { backgroundColor: dominant },
   "&:diabled": { backgroundColor: neutral1 },
+};
+
+const selectButton = {
+  backgroundColor: accent2,
+  fontWeight: "bold",
+  "&:hover": { backgroundColor: accent2 },
 };
 
 const majorButton = {
@@ -42,4 +48,4 @@ const inputField = {
     "-webkit-text-fill-color": textColor,
   },
 };
-export { minorButton, majorButton, inputField, cardButton };
+export { minorButton, majorButton, inputField, cardButton, selectButton };

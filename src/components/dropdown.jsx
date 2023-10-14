@@ -2,16 +2,17 @@
 import { Box, Button, Divider } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { dominant, neutral1 } from "../sx/colors";
 
 export default function DropDown({ style }) {
   const styleMd = {
-    color: "black",
+    color: neutral1,
     fontWeight: "bold",
     display: { xs: "none", md: "block" },
   };
 
   const styleSm = {
-    color: "black",
+    color: neutral1,
     display: { xs: "block", md: "none" },
     margin: "0 auto",
   };
@@ -22,7 +23,7 @@ export default function DropDown({ style }) {
     alignItems: "center",
     flexDirection: "column",
     position: "absolute",
-    backgroundColor: "white",
+    backgroundColor: dominant,
     padding: 2,
     borderRadius: 2,
     width: "max-content",
@@ -33,7 +34,7 @@ export default function DropDown({ style }) {
     alignItems: "center",
     flexDirection: "column",
     position: "static",
-    backgroundColor: "white",
+    backgroundColor: dominant,
     padding: 2,
     borderRadius: 2,
   };
@@ -63,7 +64,7 @@ export default function DropDown({ style }) {
               <>
                 <Button
                   key={item.buttonName}
-                  sx={{ color: "black" }}
+                  sx={{ color: neutral1 }}
                   onClick={() => {
                     setOpen(false);
                     navigate("/displayModels", {
@@ -73,7 +74,7 @@ export default function DropDown({ style }) {
                 >
                   {item.buttonName}
                 </Button>
-                <Divider sx={{ width: 1 }} />
+                <Divider sx={{ width: 1, borderColor: neutral1 }} />
               </>
             ))}
           </Box>

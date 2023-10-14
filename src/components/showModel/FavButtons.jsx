@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Button } from "@mui/material";
-import { minorButton } from "../../sx/button";
+import { selectButton } from "../../sx/button";
 import {
   useAddToFavaourites,
   useRemoveFromFavourites,
@@ -37,7 +37,7 @@ export default function FavButtons({ currentModel, setCurrentModel, type }) {
       {currentModel.favourite ? (
         <Button
           variant="contained"
-          sx={[minorButton]}
+          sx={[selectButton]}
           onClick={() => handleRemoveFavourite()}
         >
           Remove From Favourites
@@ -45,7 +45,7 @@ export default function FavButtons({ currentModel, setCurrentModel, type }) {
       ) : (
         <Button
           variant="contained"
-          sx={[minorButton]}
+          sx={[selectButton]}
           onClick={() => handleAddFavourite()}
         >
           Add To Favourite

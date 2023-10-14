@@ -3,9 +3,9 @@ import { Box, Typography, Button } from "@mui/material";
 import InputFileds from "../../components/user/inputFileds";
 import { useState } from "react";
 import ChangePassword from "../../components/user/changePassword";
-import { minorButton } from "../../sx/button";
+import { cardButton, minorButton } from "../../sx/button";
 import { centerAlign, roundBorder, size, stack } from "../../sx/container";
-import { minor } from "../../sx/colors";
+import { accent2, dominant, minor, neutral1 } from "../../sx/colors";
 
 export default function Profile() {
   const [openPass, setOpenPass] = useState(false);
@@ -21,6 +21,7 @@ export default function Profile() {
         {
           paddingY: { xs: 2, sm: 0 },
           paddingX: { xs: 1, sm: 0 },
+          backgroundColor: dominant,
         },
       ]}
     >
@@ -36,7 +37,7 @@ export default function Profile() {
             gap: 3,
             padding: { xs: 5, md: 0 },
             paddingY: { xs: 5, md: 5 },
-            boxShadow: "8px 8px 8px #0a423a",
+            backgroundColor: neutral1,
           },
         ]}
       >
@@ -45,7 +46,7 @@ export default function Profile() {
             fontSize: { xs: 36, md: 48 },
             fontWeight: "bold",
             borderBottom: 1,
-            borderBottomColor: minor,
+            borderBottomColor: accent2,
           }}
         >
           My Profile
@@ -58,7 +59,11 @@ export default function Profile() {
           }}
         >
           <InputFileds />
-          <Button sx={[minorButton]} onClick={() => setOpenPass(true)}>
+          <Button
+            variant="contained"
+            sx={[cardButton]}
+            onClick={() => setOpenPass(true)}
+          >
             Change Password
           </Button>
         </Box>
