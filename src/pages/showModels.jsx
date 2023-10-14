@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Grid, Typography } from "@mui/material";
 import { centerAlign, size, stack } from "../sx/container";
 import { useState } from "react";
 import Information from "../components/showModel/Information";
@@ -11,7 +11,7 @@ import FullScreen from "../components/showModel/FullScreen";
 import FavButtons from "../components/showModel/FavButtons";
 import Sidebar from "../components/showModel/SideBar";
 import ReviewPopup from "../components/user/reviewPopup";
-import { accent1, dominant, neutral1 } from "../sx/colors";
+import { accent1, accent2, dominant, neutral1 } from "../sx/colors";
 
 export default function ShowModels() {
   const { state } = useLocation();
@@ -84,8 +84,8 @@ export default function ShowModels() {
 
   if (isLoading && isFavLoading)
     return (
-      <Box sx={[size, centerAlign]}>
-        <Typography>Loading...</Typography>
+      <Box sx={[size, centerAlign, { backgroundColor: dominant }]}>
+        <CircularProgress sx={{ color: dominant }} />
       </Box>
     );
 
@@ -203,8 +203,8 @@ export default function ShowModels() {
           </Grid>
         </Box>
       ) : (
-        <Box sx={[size, centerAlign]}>
-          <Typography>Loading...</Typography>
+        <Box sx={[size, centerAlign, { backgroundColor: dominant }]}>
+          <CircularProgress sx={{ color: accent2 }} />
         </Box>
       )}
       {

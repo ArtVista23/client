@@ -1,11 +1,11 @@
 import { Box, Button, Grid, Typography, CircularProgress } from "@mui/material";
 import { size, centerAlign, card } from "../../sx/container";
 import CardImage from "../../components/cardImage";
-import { minorButton } from "../../sx/button";
+import { cardButton, minorButton } from "../../sx/button";
 import { useEffect, useState } from "react";
 import { searchModel } from "../../utility/api/modelSearch";
 import { useLocation, useNavigate } from "react-router-dom";
-import { minor } from "../../sx/colors";
+import { dominant, minor, neutral1 } from "../../sx/colors";
 
 export default function SearchPage() {
   const navigate = useNavigate();
@@ -23,9 +23,9 @@ export default function SearchPage() {
     })();
   }, [query]);
   return (
-    <Box sx={[size, centerAlign]}>
+    <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
       {loading ? (
-        <CircularProgress sx={{ color: minor }} />
+        <CircularProgress sx={{ color: dominant }} />
       ) : (
         <Grid container spacing={2}>
           {list.length > 0 ? (
@@ -37,14 +37,13 @@ export default function SearchPage() {
                     sx={{
                       textAlign: "center",
                       fontWeight: "bold",
-                      textShadow: "2px 2px 2px black",
                     }}
                   >
                     {item.title}
                   </Typography>
                   <Button
                     variant="contained"
-                    sx={[minorButton, { width: 1 }]}
+                    sx={[cardButton, { width: 1 }]}
                     onClick={() =>
                       navigate("/displayModels", {
                         state: { type: item.type, searchModel: item },

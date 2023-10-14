@@ -2,7 +2,7 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import { major, minor, textColor } from "../../sx/colors";
+import { accent2, dominant, major, neutral1 } from "../../sx/colors";
 
 const style = {
   position: "absolute",
@@ -12,13 +12,13 @@ const style = {
   width: { xs: 350, md: 500 },
   height: { xs: 350, md: 500 },
   overflow: "auto",
-  bgcolor: major,
-  border: `2px solid ${minor}`,
+  bgcolor: neutral1,
+  border: `4px solid ${accent2}`,
   borderRadius: 3,
-  color: textColor,
+  color: dominant,
   p: 4,
   scrollbarWidth: "thin",
-  scrollbarColor: `${minor} ${major}`,
+  scrollbarColor: `${dominant} ${major}`,
 };
 
 // eslint-disable-next-line react/prop-types
@@ -30,7 +30,7 @@ export default function PopUp({ open, handleClose, currentModel }) {
           <Typography
             variant="h6"
             component="h2"
-            sx={{ borderBottom: 1, borderBottomColor: minor }}
+            sx={{ borderBottom: 1, borderBottomColor: accent2 }}
           >
             {currentModel.title}
           </Typography>
