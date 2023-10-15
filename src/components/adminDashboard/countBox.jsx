@@ -11,7 +11,6 @@ import { accent2, dominant, major, neutral1 } from "../../sx/colors";
 import { useNavigate } from "react-router-dom";
 
 export default function CountBox({ value }) {
-  console.log(value);
   const navigate = useNavigate();
   const handleNavigate = (type) => {
     navigate("/admin/showModelsList", {
