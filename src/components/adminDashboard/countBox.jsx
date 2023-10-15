@@ -4,22 +4,19 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
-import ContactsIcon from "@mui/icons-material/Contacts";
 import PublishIcon from "@mui/icons-material/Publish";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 
 import { accent2, dominant, major, neutral1 } from "../../sx/colors";
 import { useNavigate } from "react-router-dom";
 
 export default function CountBox({ value }) {
+  console.log(value);
   const navigate = useNavigate();
   const handleNavigate = (type) => {
-    if (type != "contact") {
-      navigate("/admin/showModelsList", {
-        state: { type: type },
-      });
-    } else {
-      navigate("/admin/feedbacks");
-    }
+    navigate("/admin/showModelsList", {
+      state: { type: type },
+    });
   };
   return (
     <Box
@@ -54,8 +51,8 @@ export default function CountBox({ value }) {
       {value.name == "User Uploads" && (
         <PublishIcon sx={{ fontSize: 84, color: neutral1 }} />
       )}
-      {value.name == "Feedbacks" && (
-        <ContactsIcon sx={{ fontSize: 84, color: neutral1 }} />
+      {value.name == "Monuments" && (
+        <AccountBalanceIcon sx={{ fontSize: 84, color: neutral1 }} />
       )}
       <Typography
         sx={{
