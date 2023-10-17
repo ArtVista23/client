@@ -133,11 +133,11 @@ function NavBar() {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, display: { md: "none" } }}
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
             {navLeftItems.map(
               (item, index) =>
                 showOn == item.show && (
@@ -165,7 +165,7 @@ function NavBar() {
           >
             ArtVista
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
             {navRightItems.map(
               (item, index) =>
                 showOn == item.show && (
