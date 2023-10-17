@@ -1,5 +1,5 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
-import { centerAlign, stack } from "../../sx/container";
+import { centerAlign, roundBorder, stack } from "../../sx/container";
 import { cardButton, inputField } from "../../sx/button";
 import { useState } from "react";
 import { useMutation } from "react-query";
@@ -14,10 +14,8 @@ const style = {
   width: "50%",
   height: "90%",
   bgcolor: neutral1,
-  border: `4px solid ${accent2}`,
   p: 4,
 };
-const textField = { width: "100%" };
 
 export default function IndividualModel({
   open,
@@ -50,7 +48,7 @@ export default function IndividualModel({
   return (
     <div>
       <Modal open={open} onClose={handleClose}>
-        <Box sx={[style, centerAlign]}>
+        <Box sx={[style, centerAlign, roundBorder]}>
           <Box
             sx={[
               { width: { xs: "100%", md: "80%" }, gap: 3 },

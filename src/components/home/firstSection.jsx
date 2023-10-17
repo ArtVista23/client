@@ -1,7 +1,6 @@
 import { Box, Fade, Grid, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { centerAlign, size, stack } from "../../sx/container";
-import GenerateModel from "../model";
 import GenerateRotateModel from "./modelRotate";
 import { accent1, dominant, neutral1 } from "../../sx/colors";
 
@@ -24,8 +23,8 @@ export default function FirstSection() {
       sx={[size, centerAlign, { backgroundColor: dominant, color: neutral1 }]}
     >
       <Grid container sx={{ width: "80%" }}>
-        <Grid ref={ref} item xs={12} md={6} sx={[centerAlign, stack]}>
-          <Box sx={{ marginY: 3 }}>
+        <Grid ref={ref} item xs={12} md={6}>
+          <Box>
             <Fade
               in={isIntersecting}
               style={{ transitionDelay: isIntersecting ? "300ms" : "0ms" }}
@@ -38,6 +37,18 @@ export default function FirstSection() {
                 }}
               >
                 Where History and Creativity Converges in 3D
+                <Typography
+                  sx={{
+                    fontSize: { md: 20 },
+                    marginTop: 12,
+                    textAlign: "justify",
+                  }}
+                >
+                  Welcome to ArtVista! Dive into the cultural wonders of Jammu
+                  and Kashmir through our web project. Explore 3D renditions of
+                  sculptures, paintings, artifacts, and monuments, providing a
+                  unique digital window into the region's rich heritage.
+                </Typography>
               </Typography>
             </Fade>
           </Box>

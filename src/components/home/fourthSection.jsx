@@ -1,7 +1,7 @@
 import { Box, Grid, Fade, Typography } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import { fetchLatestModels } from "../../utility/api";
-import { centerAlign, size } from "../../sx/container";
+import { centerAlign, roundBorder, size } from "../../sx/container";
 import { accent2, neutral1 } from "../../sx/colors";
 
 export default function FourthSection() {
@@ -65,14 +65,14 @@ export default function FourthSection() {
                   style={{ transitionDelay: isIntersecting ? "300ms" : "0ms" }}
                 >
                   <Box
-                    sx={{
-                      width: { md: 400 },
-                      height: { md: 400 },
-                      border: "4px solid",
-                      borderColor: accent2,
-                      borderRadius: 3,
-                      overflow: "hidden",
-                    }}
+                    sx={[
+                      roundBorder,
+                      {
+                        width: { md: 400 },
+                        height: { md: 400 },
+                        overflow: "hidden",
+                      },
+                    ]}
                   >
                     <Box
                       component={"img"}

@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { size, centerAlign, stack, roundBorder } from "../../sx/container";
 import { inputField, minorButton } from "../../sx/button";
 import axios from "axios";
+import { dominant, neutral1 } from "../../sx/colors";
 
 export default function UploadUserModel() {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ export default function UploadUserModel() {
     }
   };
   return (
-    <Box sx={[size, centerAlign, stack]}>
+    <Box sx={[size, centerAlign, stack, { backgroundColor: dominant }]}>
       <Box
         sx={[
           roundBorder,
@@ -83,6 +84,7 @@ export default function UploadUserModel() {
             width: { md: 600 },
             gap: 3,
             padding: { xs: 2, md: 1 },
+            backgroundColor: neutral1,
           },
         ]}
       >

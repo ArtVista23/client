@@ -79,7 +79,7 @@ export const fetchAproveRequest = async (id) => {
     const response = await axios.post(
       `${import.meta.env.VITE_HOST}/api/admin/aproveRequest`,
       {
-        id: id,
+        upload_id: id,
       }
     );
     return response.data;

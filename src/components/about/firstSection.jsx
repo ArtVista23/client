@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Grid, Typography, Box, Fade } from "@mui/material";
-import { centerAlign, stack } from "../../sx/container";
+import { centerAlign, roundBorder, stack } from "../../sx/container";
 import { accent2, neutral1 } from "../../sx/colors";
+import ImageSlider from "../ImageSlider/ImageSlider";
 
 export default function FirstSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -57,17 +58,23 @@ export default function FirstSection() {
       </Grid>
       <Grid item xs={12} md={6} sx={[centerAlign, stack]}>
         <Box
-          sx={{
-            width: { md: 500 },
-            height: { md: 600 },
-            overflow: "hidden",
-          }}
+          sx={[
+            roundBorder,
+            {
+              width: { md: 500 },
+              height: { md: 600 },
+              overflow: "hidden",
+            },
+          ]}
         >
-          <Box
-            component={"img"}
-            src="/images/about1.jpg"
-            sx={{ width: "100%", marginTop: 2, objectFit: "contain" }}
-          ></Box>
+          <ImageSlider
+            images={[
+              "about1/1.jpg",
+              "about1/2.jpg",
+              "about1/3.jpg",
+              "about1/4.jpg",
+            ]}
+          />
         </Box>
       </Grid>
     </>

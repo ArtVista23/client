@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DropDown from "./dropdown";
 import SearchBox from "./user/searchBox";
-import { accent2, dominant, neutral1 } from "../sx/colors";
+import { accent1, accent2, dominant, neutral1 } from "../sx/colors";
 import { centerAlign } from "../sx/container";
 
 function NavBar() {
@@ -158,7 +158,7 @@ function NavBar() {
             variant="h4"
             component="div"
             sx={{
-              color: neutral1,
+              color: accent1,
               fontWeight: "bold",
               textShadow: `4px 4px 1px ${accent2}`,
             }}

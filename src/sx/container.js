@@ -1,4 +1,4 @@
-import { accent2, major, textColor } from "./colors";
+import { accent1, accent2, textColor } from "./colors";
 
 const size = {
   height: { xs: "max-content", md: 1 },
@@ -14,7 +14,7 @@ const centerAlign = {
 
 const stack = { flexDirection: "column" };
 
-const roundBorder = { border: 4, borderColor: accent2, borderRadius: 3 };
+const roundBorder = { border: 4, borderColor: accent1, borderRadius: 3 };
 
 const card = [
   centerAlign,

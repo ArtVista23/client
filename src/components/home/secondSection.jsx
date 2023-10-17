@@ -1,14 +1,14 @@
 import { Box, Grid, Fade, Typography, Button } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { centerAlign, size, stack } from "../../sx/container";
+import { centerAlign, roundBorder, size, stack } from "../../sx/container";
 import { minorButton } from "../../sx/button";
-import { accent2, neutral1 } from "../../sx/colors";
+import { neutral1 } from "../../sx/colors";
+import ImageSlider from "../ImageSlider/ImageSlider";
 
 export default function SecondSection() {
   const navigate = useNavigate();
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const [currentImage, setCurrentImage] = useState(1);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -21,16 +21,6 @@ export default function SecondSection() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => {
-        if (prev < 4) return prev + 1;
-        else return 1;
-      });
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
   const ref = useRef(null);
   return (
     <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
@@ -42,23 +32,23 @@ export default function SecondSection() {
               style={{ transitionDelay: isIntersecting ? "300ms" : "0ms" }}
             >
               <Box
-                sx={{
-                  width: { md: 500 },
-                  height: { md: 600 },
-                  overflow: "hidden",
-                }}
+                sx={[
+                  roundBorder,
+                  {
+                    width: { md: 500 },
+                    height: { md: 600 },
+                    overflow: "hidden",
+                  },
+                ]}
               >
-                <Box
-                  component={"img"}
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    border: "4px solid",
-                    borderColor: accent2,
-                  }}
-                  src={`/images/home/${currentImage}.jpg`}
-                ></Box>
+                <ImageSlider
+                  images={[
+                    "home/1.jpg",
+                    "home/2.jpg",
+                    "home/3.jpg",
+                    "home/4.jpg",
+                  ]}
+                />
               </Box>
             </Fade>
           </Box>

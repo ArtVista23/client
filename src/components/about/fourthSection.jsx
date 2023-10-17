@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Grid, Typography, Box, Fade } from "@mui/material";
-import { centerAlign, stack } from "../../sx/container";
-import { accent2 } from "../../sx/colors";
+import { centerAlign, roundBorder, stack } from "../../sx/container";
+import { accent1, accent2 } from "../../sx/colors";
+import ImageSlider from "../ImageSlider/ImageSlider";
 
 export default function FourthSection() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -21,17 +22,23 @@ export default function FourthSection() {
     <>
       <Grid item xs={12} md={6} sx={[centerAlign, stack]}>
         <Box
-          sx={{
-            width: { md: 500 },
-            height: { md: 600 },
-            overflow: "hidden",
-          }}
+          sx={[
+            roundBorder,
+            {
+              width: { md: 500 },
+              height: { md: 600 },
+              overflow: "hidden",
+            },
+          ]}
         >
-          <Box
-            component={"img"}
-            src="/images/about2.jpg"
-            sx={{ width: "100%", marginTop: 2, objectFit: "contain" }}
-          ></Box>
+          <ImageSlider
+            images={[
+              "about3/1.jpg",
+              "about3/2.jpg",
+              "about3/3.jpg",
+              "about3/4.jpg",
+            ]}
+          />
         </Box>
       </Grid>
       <Grid item ref={ref} xs={12} md={6} sx={[centerAlign, stack]}>
@@ -43,7 +50,7 @@ export default function FourthSection() {
             sx={{
               fontSize: { xs: 48, md: 48 },
               fontWeight: "bold",
-              color: accent2,
+              color: accent1,
             }}
           >
             Discover Art in a New Light

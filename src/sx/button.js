@@ -37,6 +37,7 @@ const inputField = {
   },
   "& .MuiFormLabel-root.Mui-focused": {
     color: textColor,
+    fontWeight: "bold",
   },
   "& .MuiInputBase-input": { color: textColor },
   input: { color: textColor },
