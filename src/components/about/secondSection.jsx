@@ -25,8 +25,8 @@ export default function SecondSection() {
           sx={[
             roundBorder,
             {
-              width: { md: 500 },
-              height: { md: 600 },
+              width: { xs: 350, md: 500 },
+              height: { xs: 400, md: 600 },
               overflow: "hidden",
             },
           ]}
