@@ -13,13 +13,13 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import FeedbackPopUp from "./feedbackPopUp";
-import { dominant, major, textColor } from "../../../sx/colors";
+import { dominant, major, neutral1, textColor } from "../../../sx/colors";
 import { selectButton } from "../../../sx/button";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: dominant,
-    color: major,
+    color: neutral1,
     border: `2px solid ${dominant}`,
     textAlign: "center",
     fontWeight: "bold",
@@ -28,7 +28,7 @@ const StyledTableCell = styled(TableCell)(() => ({
 
   [`&.${tableCellClasses.body}`]: {
     fontSize: 18,
-    backgroundColor: major,
+    backgroundColor: neutral1,
     border: `2px solid ${dominant}`,
     textAlign: "center",
     color: textColor,
