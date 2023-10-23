@@ -18,6 +18,7 @@ import { minorButton, selectButton } from "../../sx/button";
 import { dominant, major, neutral1, textColor } from "../../sx/colors";
 import { allDetails } from "../../hooks/getModelDetails";
 import IndividualModel from "../../components/adminDashboard/individualModel";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -64,7 +65,7 @@ export default function ShowModelList() {
   if (isLoading || isFetching) {
     return (
       <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
-        Loading...
+        <CircularProgress sx={{ color: dominant }} />
       </Box>
     );
   } else {

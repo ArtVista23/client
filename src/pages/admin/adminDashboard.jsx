@@ -3,8 +3,9 @@ import CountBox from "../../components/adminDashboard/countBox";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import UplaodTable from "../../components/adminDashboard/uploadTable";
-import { major, neutral1, textColor } from "../../sx/colors";
+import { dominant, major, neutral1, textColor } from "../../sx/colors";
 import { centerAlign, size, stack } from "../../sx/container";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function AdminDashboard() {
   const [records, setRecords] = useState([]);
@@ -66,7 +67,9 @@ export default function AdminDashboard() {
           <UplaodTable />
         </Box>
       ) : (
-        <Box sx={[size, centerAlign]}>Loading ...</Box>
+        <Box sx={[size, centerAlign, { backgroundColor: neutral1 }]}>
+          <CircularProgress sx={{ color: dominant }} />
+        </Box>
       )}
     </>
   );

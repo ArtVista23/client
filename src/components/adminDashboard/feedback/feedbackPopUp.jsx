@@ -21,6 +21,7 @@ import {
   neutral1,
   textColor,
 } from "../../../sx/colors";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const style = {
   position: "absolute",
@@ -43,11 +44,18 @@ const style = {
 export default function FeedbackPopUp({ open, handleClose, currentFeedback }) {
   const [reply, setReply] = useState("");
   const [openMessage, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleReply = async () => {
-    const response = await sendReply(currentFeedback, reply);
-    if (response) {
+    setLoading(true);
+    try {
+      await sendReply(currentFeedback, reply);
       setOpen(true);
       handleClose();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      handleClose();
+      setLoading(false);
     }
   };
   return (
@@ -113,8 +121,9 @@ export default function FeedbackPopUp({ open, handleClose, currentFeedback }) {
             variant="contained"
             sx={[cardButton, { width: 1, marginTop: 3 }]}
             onClick={handleReply}
+            disabled={loading}
           >
-            Send
+            {loading ? <CircularProgress sx={{ color: dominant }} /> : "Send"}
           </Button>
         </Box>
       </Modal>

@@ -8,12 +8,14 @@ import { setOTP } from "../../utility/api/register";
 import { cardButton, inputField, minorButton } from "../../sx/button";
 import { centerAlign, roundBorder, size, stack } from "../../sx/container";
 import { dominant, neutral1, textColor } from "../../sx/colors";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Register() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState([]);
   const [disabled, setDisabled] = useState(true);
   const [otp, setOtp] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [otpMessage, setOtpMessage] = useState("");
   const handleOpenOTP = () => setOtp(true);
 
@@ -55,10 +57,12 @@ export default function Register() {
   };
 
   const handleSubmit = async () => {
+    setLoading(true);
     handleOpenOTP();
     (async () => {
       const response = await setOTP(inputs.email);
       setOtpMessage(response);
+      setLoading(false);
     })();
   };
   return (
@@ -157,7 +161,11 @@ export default function Register() {
           disabled={disabled}
           onClick={handleSubmit}
         >
-          Create Account
+          {loading ? (
+            <CircularProgress sx={{ color: dominant }} />
+          ) : (
+            "Create Account"
+          )}
         </Button>
         <Typography variant="h5">OR</Typography>
         <Button

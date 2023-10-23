@@ -14,6 +14,7 @@ import { cardButton, inputField, minorButton } from "../../sx/button";
 import { size, centerAlign, stack, roundBorder } from "../../sx/container";
 import { neutral1, textColor } from "../../sx/colors";
 import { useLocation } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function UploadModel() {
   const { state } = useLocation();
@@ -24,6 +25,7 @@ export default function UploadModel() {
   const [msg, setMsg] = useState("");
   const [success, setSuccess] = useState(false);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (state) {
@@ -62,6 +64,7 @@ export default function UploadModel() {
       setOpen(true);
       setSuccess(false);
     } else {
+      setLoading(true);
       const formData = new FormData();
       formData.append("title", inputs.title);
       formData.append("thumbnail", inputs.thumbnail);
@@ -77,6 +80,7 @@ export default function UploadModel() {
             setMsg(result.data.message);
             setSuccess(true);
             setOpen(true);
+            setLoading(false);
           });
         for (let item in inputs)
           setInputs((values) => ({ ...values, [item]: "" }));
@@ -85,6 +89,7 @@ export default function UploadModel() {
         setMsg(error.response.data.message);
         setSuccess(false);
         setOpen(true);
+        setLoading(false);
       }
     }
   };
@@ -133,8 +138,13 @@ export default function UploadModel() {
         />
         <InputLabel sx={{ color: textColor }}>Model File</InputLabel>
         <TextField type="file" sx={inputField} onChange={handleFile} />
-        <Button variant="contained" sx={[cardButton]} onClick={handleSubmit}>
-          Submit
+        <Button
+          variant="contained"
+          sx={[cardButton]}
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? <CircularProgress /> : "Upload"}
         </Button>
       </Box>
       <Snackbar

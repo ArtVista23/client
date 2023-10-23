@@ -1,4 +1,4 @@
-import { Box, Button, Modal, TextField } from "@mui/material";
+import { Box, Button, CircularProgress, Modal, TextField } from "@mui/material";
 import { centerAlign, roundBorder, stack } from "../../sx/container";
 import { cardButton, inputField } from "../../sx/button";
 import { useState } from "react";
@@ -26,6 +26,7 @@ export default function IndividualModel({
 }) {
   const handleClose = () => setOpen(false);
   const [changes, setChanges] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const { mutate, isSuccess } = useMutation((obj) => {
     return axios.post(
@@ -41,6 +42,10 @@ export default function IndividualModel({
         onSuccess: () => {
           refetch();
           handleClose();
+          setLoading(false);
+        },
+        onError: () => {
+          setLoading(false);
         },
       }
     );
@@ -118,9 +123,12 @@ export default function IndividualModel({
             <Button
               variant="contained"
               sx={[cardButton]}
-              onClick={handleUpdate}
+              onClick={() => {
+                setLoading(true);
+                handleUpdate();
+              }}
             >
-              Update
+              {loading ? <CircularProgress color="error" /> : "Update"}
             </Button>
           </Box>
         </Box>

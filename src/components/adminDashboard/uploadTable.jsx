@@ -16,6 +16,7 @@ import {
 import PopUpModel from "./popUpModel";
 import { dominant, major, minor, neutral1, textColor } from "../../sx/colors";
 import { downloadZip } from "../../utility/api/admin";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,10 +41,17 @@ const StyledTableRow = styled(TableRow)(() => ({}));
 
 export default function UplaodTable() {
   const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleCurrentModel = (item) => {
     (async () => {
-      downloadZip(item.user_id);
+      try {
+        await downloadZip(item.user_id);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
     })();
   };
 
@@ -111,7 +119,11 @@ export default function UplaodTable() {
                         handleCurrentModel(row);
                       }}
                     >
-                      Download
+                      {loading ? (
+                        <CircularProgress sx={{ color: "white" }} />
+                      ) : (
+                        "Download"
+                      )}
                     </Button>
                     <Button
                       variant="contained"
