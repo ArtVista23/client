@@ -17,7 +17,6 @@ export default function Favourites({ favourites, setFavourites }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   const handleCurrentModel = async (model, index) => {
     const userId = sessionStorage.getItem("userId");
     const favourite = await axios.get(
